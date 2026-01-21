@@ -44,18 +44,20 @@ def is_prime(n: int) -> bool:
     """
     if n < 2:
         return False
-    
+
     if n <= 3:
         return True
-    
+
     if n % 2 == 0 or n % 3 == 0:
         return False
-    
+
     limit = int(n**0.5) + 1
-    for i in range(5, limit, 6):
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-    return True
+    # for i in range(5, limit, 6):
+    #     if n % i == 0 or n % (i + 2) == 0:
+    #         return False
+    # return True
+    match_value = any(n % i == 0 or n % (i + 2) == 0 for i in range(5, limit, 6))
+    return not match_value
 
 def lcm(a: int, b: int) -> int:
     """Compute the least common multiple of two integers.
