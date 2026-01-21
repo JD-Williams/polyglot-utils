@@ -1,0 +1,39 @@
+[project]
+name = "jdwilliams-utils"
+version = "0.1.0"
+description = "Reusable utilities across multiple projects"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+fix = false  # manual fixes only
+
+lint.select = [
+    "F",    # Pyflakes
+    "E", "W",  # Pycodestyle
+    "B",    # Bugbear
+    "A",    # Builtin shadowing
+    "I",    # Import order
+    "SIM",  # Simplifications
+    "C4",   # Comprehension safety
+    "RET",  # Return consistency
+    "UP",   # Modern Python
+]
+
+lint.ignore = [
+    "E501",  # Line length (handled by formatter later)
+]
+
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
