@@ -30,7 +30,13 @@ jobs:
           cd python
           pip install -e ".[dev]"
 
-      # Step 4: Run tests
+      # Step 4: Lint code
+      - name: Run Ruff Linter
+        run: |
+          cd python
+          ruff check .
+
+      # Step 5: Run tests
       - name: Run tests
         run: |
           cd python
